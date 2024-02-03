@@ -1,17 +1,22 @@
-import { GoChevronDown, GoChevronLeft } from "react-icons/go";
+import { FaAngleLeft, FaAngleDown } from "react-icons/fa";
+import { useState } from "react";
 
 function ExpandablePanel({ header, children }) {
-  
+  const [expanded, setExpanded] = useState(false);
+  const handleClick = () => {
+    setExpanded(!expanded);
+  };
+
   return (
     <div className="panelDiv">
       <div className="topArrangement">
         <div className="topArrangement">{header}</div>
-        <div>
-          <GoChevronLeft />
+        <div onClick={handleClick}>
+          {expanded ? <FaAngleDown /> : <FaAngleLeft />}
         </div>
       </div>
 
-      {children}
+      {expanded && <div>{children}</div>}
     </div>
   );
 }
