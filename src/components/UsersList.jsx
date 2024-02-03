@@ -1,9 +1,14 @@
-import { Skeleton } from "@mui/material";
-import { useFetchUsersQuery } from "../store";
+import { Button, CircularProgress, Skeleton } from "@mui/material";
+import { useFetchUsersQuery, useAddUsersMutation } from "../store";
 import UsersListItem from "./UsersListItem";
 
 function UsersList() {
   const { data, isError, isFetching } = useFetchUsersQuery();
+  const [addUser, results] = useAddUsersMutation();
+  const handleUserAdd = () => {
+    addUser();
+  };
+
   let content;
   if (isFetching) {
     content = (
@@ -17,7 +22,17 @@ function UsersList() {
     });
   }
 
-  return <div>{content}</div>;
+  return (
+    <div>
+      <div className="topArragement">
+        <h1 style={{ fontSize: "25px" }}>Kişiler</h1>
+        <Button variant="outlined" onClick={handleUserAdd}>
+          {results.isLoading ? <CircularProgress /> : <span>Ekle +</span>}
+        </Button>
+      </div>
+      {content}
+    </div>
+  );
 }
 
 export default UsersList;
