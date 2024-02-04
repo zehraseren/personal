@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import ExpandablePanel from "./ExpandablePanel";
 import AlbumList from "./AlbumList";
 import { FaTrash } from "react-icons/fa";

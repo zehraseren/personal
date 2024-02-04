@@ -27,7 +27,11 @@ function UsersList() {
       <div className="topArrangement">
         <h1 style={{ fontSize: "25px" }}>Kişiler</h1>
         <Button variant="outlined" onClick={handleUserAdd}>
-          {results.isLoading ? <CircularProgress style={{width:"23px", height:"23px"}}/> : <span>Ekle +</span>}
+          {results.isLoading ? (
+            <CircularProgress style={{ width: "23px", height: "23px" }} />
+          ) : (
+            <span>Ekle +</span>
+          )}
         </Button>
       </div>
       {content}

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FaAngleLeft, FaAngleDown } from "react-icons/fa";
 import { useState } from "react";
 
