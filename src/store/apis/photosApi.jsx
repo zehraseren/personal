@@ -23,7 +23,7 @@ const photosApi = createApi({
           const tags = result.map((photo) => {
             return { type: "Photo", id: photo.id };
           });
-          tags.push({ type: "AlbumsPhoto", id: album.id });
+          tags.push({ type: "Photo", id: album.id });
           return tags;
         },
         query: (album) => {
@@ -38,7 +38,7 @@ const photosApi = createApi({
       }),
       addPhotos: builder.mutation({
         invalidatesTags: (result, error, album) => {
-          return [{ type: "UsersAlbum", id: album.id }];
+          return [{ type: "AlbumsPhoto", id: album.id }];
         },
         query: (album) => {
           return {
@@ -46,7 +46,7 @@ const photosApi = createApi({
             method: "POST",
             body: {
               albumId: album.id,
-              url: faker.image.abstract(150, 150, true),
+              url: faker.image.abstract(125, 125, true),
             },
           };
         },

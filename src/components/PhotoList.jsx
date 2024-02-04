@@ -6,11 +6,11 @@ import {
 } from "../store/apis/photosApi";
 import PhotoListItem from "./PhotoListItem";
 
-function AlbumList({ album }) {
+function PhotoList({ album }) {
   const { data, isError, isFetching } = useFetchPhotosQuery(album);
-  const [addPhoto, results] = useAddPhotosMutation();
+  const [addPhotos, results] = useAddPhotosMutation();
   const handlePhotoAdd = () => {
-    addPhoto(album);
+    addPhotos(album);
   };
 
   let content;
@@ -33,16 +33,16 @@ function AlbumList({ album }) {
           <h3>{album.title} Fotoğrafları</h3>
           <Button color="error" variant="outlined" onClick={handlePhotoAdd}>
             {results.isLoading ? (
-              <CircularProgress style={{ width: "23px", height: "23px" }} />
+              <CircularProgress style={{ width: "23px", height: "23px" }} color="error" />
             ) : (
               <span>Fotoğraf Ekle +</span>
             )}
           </Button>
         </div>
       </div>
-      <div>{content}</div>
+      <div className="photoDiv">{content}</div>
     </>
   );
 }
 
-export default AlbumList;
+export default PhotoList;

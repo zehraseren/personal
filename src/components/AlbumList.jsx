@@ -8,9 +8,9 @@ import AlbumListItem from "./AlbumListItem";
 
 function AlbumList({ user }) {
   const { data, isError, isFetching } = useFetchAlbumsQuery(user);
-  const [addAlbum, results] = useAddAlbumsMutation();
+  const [addAlbums, results] = useAddAlbumsMutation();
   const handleAlbumAdd = () => {
-    addAlbum(user);
+    addAlbums(user);
   };
 
   let content;
@@ -33,7 +33,10 @@ function AlbumList({ user }) {
           <h3>{user.name} Albümü</h3>
           <Button color="success" variant="outlined" onClick={handleAlbumAdd}>
             {results.isLoading ? (
-              <CircularProgress style={{ width: "23px", height: "23px" }} />
+              <CircularProgress
+                style={{ width: "23px", height: "23px" }}
+                color="success"
+              />
             ) : (
               <span>Albüm Ekle +</span>
             )}
