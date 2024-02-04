@@ -12,5 +12,12 @@
       "id": "1b3a",
       "name": "Wm Jenkins"
     }
+  ],
+  "albums": [
+    {
+      "userıId": 3,
+      "title": "Eskişehir",
+      "id": 15
+    }
   ]
 }
