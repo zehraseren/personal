@@ -29,5 +29,12 @@
       "userId": "3",
       "title": "Oriental Wooden Soap"
     }
+  ],
+  "photos": [
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150/abstract?lock=28625",
+      "id": 1
+    }
   ]
 }
